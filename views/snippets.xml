@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
+		<template id="book_snippet" inherit_id="website.snippets">
+			<xpath expr="//div[@id='snippet_feature']/div[@class='o_panel_body']" position="inside">
+				<div>
+					<div class="oe_snippet_thumbnail">
+						<div style="background:white;box-shadow:none" class="oe_snippet_thumbnail_img">
+							<i class="fa fa-book fa-5x text-muted" />
+						</div>
+						<span class="oe_snippet_thumbnail_title">
+							Latest Books</span>
+					</div>
+
+					<div class="oe_snippet_body body_snippet">
+						<section class="container">
+							<h2>Latest Books</h2>
+							<table class="table">
+								<tr>
+									<th>Name</th>
+									<th>Release Date</th>
+								</tr>
+							</table>
+						</section>
+					</div>
+				</div>
+				
+			</xpath>
+		</template>
 	</data>
 </openerp>

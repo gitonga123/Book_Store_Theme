@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="assets_frontend" inherit_id="website.assets_frontend">
+		<xpath expr="." position="inside">
+			<link href="/book_theme/static/src/css/style.css" rel="stylesheet" type="text/css" />
+
+			<script src="/book_theme/static/src/java_script/script.js" type="text/javascript" />
+		</xpath>
+	</template>
+
+	<template id="books">
+		<t t-call="website.layout">
+			<section>
+				This is an editable text before the list of books.
+			</section>
+			<t t-foreach="books" t-as="book">
+				<article itemscope="itemscope" itemptype="http://schema.org/Book" t-attf-class="row book-#{book_parity}">
+					<h2 t-field="book.name" class="col-md-12" />
+					<t t-if="book.date_release">
+						<div class="col-md-2" t-att-dateCreated="book.date_release" t-field="book.date_release" />
+					</t>
+
+					<ul class="col-md-10">
+						<li t-foreach="book.authors_id" t-as="author" itemprop="author">
+							<t t-esc="author.name" />
+						</li>
+					</ul>
+				</article>
+			</t>
+
+			<section contentededitable="False">
+				This is a non-editable text aftert the list of books.
+			</section>
+
+		</t>
+	</template>
+</odoo>
